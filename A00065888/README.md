@@ -10,9 +10,25 @@ El primer parcial del curso sistemas operativos trata sobre el manejo de los com
 
 ## Desarrollo
 
+## PUNTO 3
 
+  * sum_all_numbers
+ Creo el archivo #sum-me.txt#
+   ![][1]
+   y sumo la lista de números en el archivo con el comando awk '{s+=$1} END {print s}' sum-me.txt
+   ![][2]
+  * replace_spaces_in_filenames
+  
+  * reverse_readme
+  
+  * remove_duplicated_lines
+  
+  * disp_table
+  
 
 ## Referencias
 
-http://faculty.salina.k-state.edu/tim/ossg/Introduction/OShistory.html  
-http://www.cs.gordon.edu/courses/cs322/lectures/history.html
+https://cmdchallenge.com/
+
+[1]: images/sum-me.JPG
+[2]: images/sum-me-sol.JPG
