@@ -44,10 +44,10 @@ uso el comando ls|sed 's| |\.|g'
 ## PUNTO 4
 Crear un script que realice una descarga de un libro de  https://www.gutenberg.org cada 5 minutos, y si ya existe un libro en el directorio, éste debe ser reemplazado.  
 El formato en que se presentan las url de  https://www.gutenberg.org cambian a partir del libro #4000 es por esto que el escript solo funciona para libros entre el 0 y el 4000.
-Primero creo el script llamado "downloader.sh", lo compilo y verifico si efectivamente está guardando libros.
+Primero creo el script llamado "downloader.sh", lo compilo y verifico si efectivamente está guardando libros. El comando wget ya reemplaza el archivo si tiene el mismo nombre.
 ![][9]
 ![][10]  
-Ahora falta ordenarle al sistema ejecutar el script cada 5 minutos.
+Ahora falta ordenarle al sistema ejecutar el script cada 5 minutos. Para esto usamos *crontab* . "Cron es el administrador de procesos, Cron lee en un archivo de texto plano llamado Crontab en donde se guardan una lista de comandos creados por el usuario ha ser ejecutados" (www.desarrollolibre.net, 2017). 
 ## PUNTO 5
 
 ## Referencias
