@@ -12,23 +12,53 @@ El primer parcial del curso sistemas operativos trata sobre el manejo de los com
 
 ## PUNTO 3
 
-  * sum_all_numbers
+ * sum_all_numbers
  Creo el archivo #sum-me.txt#
-   ![][1]
-   y sumo la lista de números en el archivo con el comando awk '{s+=$1} END {print s}' sum-me.txt
-   ![][2]
-  * replace_spaces_in_filenames
   
-  * reverse_readme
+  ![][1]  
+   
+  y sumo la lista de números en el archivo con el comando awk '{s+=$1} END {print s}' sum-me.txt
   
-  * remove_duplicated_lines
-  
-  * disp_table
-  
+  ![][2]  
+    
+* replace_spaces_in_filenames  
+uso el comando ls|sed 's| |\.|g'
+  ![][3]  
+    
+* reverse_readme  
+  creo un archivo con el nombre "README.txt" y lo leo
+  ![][4]  
+  ahora lo leo en orden de lineas al revés  con el comando tac
+  ![][5]  
+    
+* remove_duplicated_lines  
+ creo el archivo "eliminarrepetidas.txt" 
+ ![][6]  
+ borro las lineas repetidas con el comando cat eliminarrepetidas.txt | uniq | awk '!x[$0]++'
+ ![][7]  
+    
+ * disp_table  
+ creo el archivo "columns.txt" con la información del challenge y con el comando column -ts ',' columns.txt* hago que se vuelvan columnas
+ ![][8]  
+    
+## PUNTO 4
+
+## PUNTO 5
 
 ## Referencias
 
 https://cmdchallenge.com/
+https://stackoverflow.com/questions/2702564/how-can-i-quickly-sum-all-numbers-in-a-file
+https://stackoverflow.com/questions/742466/how-can-i-reverse-the-order-of-lines-in-a-file
+https://unix.stackexchange.com/questions/148379/delete-spaces-hyphens-and-underscores-in-filenames
+https://es.wikipedia.org/wiki/Pink_Floyd
+https://www.lifewire.com/file-contents-in-column-format-linux-4018107
 
-[1]: images/sum-me.JPG
-[2]: images/sum-me-sol.JPG
+[1]: images/sum-me.PNG
+[2]: images/sum-me-sol.PNG
+[3]: images/replace-spaces.JPG
+[4]: images/cat-readme.JPG
+[5]: images/tac-readme.JPG
+[6]: images/sin-eliminar.JPG
+[7]: images/elimindas.JPG
+[8]: images/columns.JPG
