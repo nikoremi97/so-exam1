@@ -47,8 +47,17 @@ El formato en que se presentan las url de  https://www.gutenberg.org cambian a p
 Primero creo el script llamado "downloader.sh", lo compilo y verifico si efectivamente está guardando libros. El comando wget ya reemplaza el archivo si tiene el mismo nombre.
 ![][9]
 ![][10]  
-Ahora falta ordenarle al sistema ejecutar el script cada 5 minutos. Para esto usamos *crontab* . "Cron es el administrador de procesos, Cron lee en un archivo de texto plano llamado Crontab en donde se guardan una lista de comandos creados por el usuario ha ser ejecutados" (www.desarrollolibre.net, 2017). 
+Ahora falta ordenarle al sistema ejecutar el script cada 5 minutos. Para esto usamos *crontab* . "Cron es el administrador de procesos, Cron lee en un archivo de texto plano llamado Crontab en donde se guardan una lista de comandos creados por el usuario ha ser ejecutados" (www.desarrollolibre.net, 2017).   
+![][11]  
+defino la actividad del crontab y el parametro "*/5*" hace que se ejecute cada 5 minutos
+![][12]  
+y verifico que se haya descargado el libro   
+![][13]
+
 ## PUNTO 5
+Explicación del código del repositorio https://github.com/jvns/kernel-module-fun/blob/master/rickroll.c  
+
+
 
 ## Referencias
 
@@ -72,3 +81,6 @@ http://www.desarrollolibre.net/blog/tema/106/linux/ejecutar-script-automaticamen
 [8]: images/columns.JPG
 [9]: images/guten1.JPG
 [10]: images/guten2.JPG
+[11]: images/crontab.JPG
+[12]: images/crontab2.JPG
+[13]: images/crontab3.JPG
