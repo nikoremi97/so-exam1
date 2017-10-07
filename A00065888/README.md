@@ -42,7 +42,12 @@ uso el comando ls|sed 's| |\.|g'
  ![][8]  
     
 ## PUNTO 4
-
+Crear un script que realice una descarga de un libro de  https://www.gutenberg.org cada 5 minutos, y si ya existe un libro en el directorio, éste debe ser reemplazado.  
+El formato en que se presentan las url de  https://www.gutenberg.org cambian a partir del libro #4000 es por esto que el escript solo funciona para libros entre el 0 y el 4000.
+Primero creo el script llamado "downloader.sh", lo compilo y verifico si efectivamente está guardando libros.
+![][9]
+![][10]  
+Ahora falta ordenarle al sistema ejecutar el script cada 5 minutos.
 ## PUNTO 5
 
 ## Referencias
@@ -53,6 +58,9 @@ https://stackoverflow.com/questions/742466/how-can-i-reverse-the-order-of-lines-
 https://unix.stackexchange.com/questions/148379/delete-spaces-hyphens-and-underscores-in-filenames
 https://es.wikipedia.org/wiki/Pink_Floyd
 https://www.lifewire.com/file-contents-in-column-format-linux-4018107
+https://stackoverflow.com/questions/16678487/wget-command-to-download-a-file-and-save-as-a-different-filename
+https://stackoverflow.com/questions/8988824/generating-random-number-between-1-and-10-in-bash-shell-script
+http://www.desarrollolibre.net/blog/tema/106/linux/ejecutar-script-automaticamente-con-cron-en-linux#.WdklwGj9SMp
 
 [1]: images/sum-me.PNG
 [2]: images/sum-me-sol.PNG
@@ -62,3 +70,5 @@ https://www.lifewire.com/file-contents-in-column-format-linux-4018107
 [6]: images/sin-eliminar.JPG
 [7]: images/elimindas.JPG
 [8]: images/columns.JPG
+[9]: images/guten1.JPG
+[10]: images/guten2.JPG
