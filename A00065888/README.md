@@ -2,7 +2,7 @@
 
 **Nombre:** Nicolas Recalde   
 **Código:** A00065888  
-**Github URL:** ://github.com/nikoremi97/so-exam1/blob/A00065888/README.md
+**Github URL:**  https://github.com/nikoremi97/so-exam1/tree/A00065888/A00065888
 
 ## Descripción
 
