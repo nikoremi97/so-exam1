@@ -57,18 +57,23 @@ y verifico que se haya descargado el libro
 ## PUNTO 5
 Explicación del código del repositorio https://github.com/jvns/kernel-module-fun/blob/master/rickroll.c  
 El propósito del script, como lo muestra el video https://www.youtube.com/watch?v=efEZZZf_nTc, es reemplazar a todos los archivos .mp3 por el tema *Never gonna give you up*, algo conocido como "Rickrollear". El siguiente paso es describir como funciona este script...  
+Primero hay que tener en cuenta que para instalar un nuevo driver al kernel se deben tener dos modulos, el de inicio y el de fin, que serían estos:  
+![][18]  
+El module_init() define que método se ejecuta cuando se inicia el driver, en este caso es el que permite hacer el *Rickrolleo*. El module_exit() define que método se ejecutará cuando se desinstale el driver, o sea, desactivar la función de *Rickrollear* cada vez que abra una canción.   
+Ahora hablemos del código del driver...  
+
   
 ![][14]  
 En la primera parte, simplemente se definen las librerías a utilizar, una ruta estática para el archivo de la canción Never gonna give you up, y los parámetros de los módulos del kernel, a los cuales se les cambia los permisos por los parámetro (www.linux.com, 2017).  
 ![][15]  
-En esta parte *cr0* es un registro en el sistema que controla las llamadas al sistema, y posteriormente hará un cambio en ellas, por eso necesita cambiar el registr para hacerlo libremente. 
-
-![][16]  
-En esta parte es donde se hacen los cambios en la tabla de syscalls. Primero se verifica si existe el archivo con la canción para el *Rickrolleo* 
+En esta parte *cr0* es un registro en el sistema que controla las llamadas al sistema, y posteriormente hará un cambio en ellas, por eso necesita cambiar el registr para hacerlo libremente. y se hacen llamados a metodos definidos posteriormente.
+Lo que hace la linea "asmlinkage long rickroll_open(const char user filename, int flags, umode_t mode); es ejecutar un método que busca los archivos en formato .mp3 para dar su verdadero syscall, y que pueda ser reemplazado por el de la famosa canción. 
   
-la linea "sys_call_table = find_sys_call_table();" asigna la locación en memoria de syscalls 
+![][16]  
+En esta parte es donde se hacen los cambios en la tabla de syscalls. Primero se verifica si existe el archivo con la canción para el *Rickrolleo* . La linea "sys_call_table = find_sys_call_table();" ejecuta un método que asigna la locación en memoria de syscalls. Se verifica si se encontró la dirección de la tabla en el memoria. Por último se desactiva la protección de los registros y se reemplaza la syscall original por la que abre el archivo de *Never gonna give you up* y se reactiva la protección.  
+  
 ![][17]  
-se verifica si se encontró la dirección de la tabla en el memoria. Por último se desactiva la protección de los registros y se reemplaza la syscall original por la que abre el archivo de *Never gonna give you up* y se reactiva la protección.
+Por último, se tiene un método que restaura a la normalidad el kernel, para que la función del *Rickrolleo* sea desactivada y todo funcione como antes.
 
 
 ## Referencias
@@ -83,6 +88,8 @@ https://stackoverflow.com/questions/16678487/wget-command-to-download-a-file-and
 https://stackoverflow.com/questions/8988824/generating-random-number-between-1-and-10-in-bash-shell-script
 http://www.desarrollolibre.net/blog/tema/106/linux/ejecutar-script-automaticamente-con-cron-en-linux#.WdklwGj9SMp
 https://www.linux.com/learn/kernel-newbie-corner-everything-you-wanted-know-about-module-parameters
+https://www.kernel.org/doc/htmldocs/kernel-hacking/routines-init-again.html
+https://www.fsl.cs.sunysb.edu/kernel-api/re02.html
 
 [1]: images/sum-me.PNG
 [2]: images/sum-me-sol.PNG
@@ -100,4 +107,5 @@ https://www.linux.com/learn/kernel-newbie-corner-everything-you-wanted-know-abou
 [14]: images/rickroll1.JPG
 [15]: images/rickroll2.JPG
 [16]: images/rickroll3.JPG
-[17]: images/rickrollfindsys.JPG
+[17]: images/rickrollclean.JPG
+[18]: images/rickrollmodules.JPG
