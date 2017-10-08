@@ -70,10 +70,10 @@ En esta parte *cr0* es un registro en el sistema que controla las llamadas al si
 Lo que hace la linea "asmlinkage long rickroll_open(const char user filename, int flags, umode_t mode); es ejecutar un método que busca los archivos en formato .mp3 para dar su verdadero syscall, y que pueda ser reemplazado por el de la famosa canción. 
   
 ![][16]  
-En esta parte es donde se hacen los cambios en la tabla de syscalls. Primero se verifica si existe el archivo con la canción para el *Rickrolleo* . La linea "sys_call_table = find_sys_call_table();" ejecuta un método que asigna la locación en memoria de syscalls. Se verifica si se encontró la dirección de la tabla en el memoria. Por último se desactiva la protección de los registros y se reemplaza la syscall original por la que abre el archivo de *Never gonna give you up* y se reactiva la protección.  
+En esta parte es donde se hacen los cambios en la tabla de syscalls. Primero se verifica si existe el archivo con la canción para el *Rickrolleo* . La linea "sys_call_table = find_sys_call_table();" ejecuta un método que asigna la locación en memoria de syscalls. Se verifica si se encontró la dirección de la tabla en el memoria. Después se desactiva la protección de los registros y se reemplaza la syscall original por la que abre el archivo de *Never gonna give you up* y se reactiva la protección.  
   
 ![][17]  
-Por último, se tiene un método que restaura a la normalidad el kernel, para que la función del *Rickrolleo* sea desactivada y todo funcione como antes.
+Por último, se tiene un método que restaura a la normalidad el kernel restaurando la tabla de syscalls, para que la función del *Rickrolleo* sea desactivada y todo funcione como antes. 
 
 
 ## Referencias
