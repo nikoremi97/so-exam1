@@ -56,7 +56,19 @@ y verifico que se haya descargado el libro
 
 ## PUNTO 5
 Explicación del código del repositorio https://github.com/jvns/kernel-module-fun/blob/master/rickroll.c  
+El propósito del script, como lo muestra el video https://www.youtube.com/watch?v=efEZZZf_nTc, es reemplazar a todos los archivos .mp3 por el tema *Never gonna give you up*, algo conocido como "Rickrollear". El siguiente paso es describir como funciona este script...  
+  
+![][14]  
+En la primera parte, simplemente se definen las librerías a utilizar, una ruta estática para el archivo de la canción Never gonna give you up, y los parámetros de los módulos del kernel, a los cuales se les cambia los permisos por los parámetro (www.linux.com, 2017).  
+![][15]  
+En esta parte *cr0* es un registro en el sistema que controla las llamadas al sistema, y posteriormente hará un cambio en ellas, por eso necesita cambiar el registr para hacerlo libremente. 
 
+![][16]  
+En esta parte es donde se hacen los cambios en la tabla de syscalls. Primero se verifica si existe el archivo con la canción para el *Rickrolleo* 
+  
+la linea "sys_call_table = find_sys_call_table();" asigna la locación en memoria de syscalls 
+![][17]  
+se verifica si se encontró la dirección de la tabla en el memoria. Por último se desactiva la protección de los registros y se reemplaza la syscall original por la que abre el archivo de *Never gonna give you up* y se reactiva la protección.
 
 
 ## Referencias
@@ -70,6 +82,7 @@ https://www.lifewire.com/file-contents-in-column-format-linux-4018107
 https://stackoverflow.com/questions/16678487/wget-command-to-download-a-file-and-save-as-a-different-filename
 https://stackoverflow.com/questions/8988824/generating-random-number-between-1-and-10-in-bash-shell-script
 http://www.desarrollolibre.net/blog/tema/106/linux/ejecutar-script-automaticamente-con-cron-en-linux#.WdklwGj9SMp
+https://www.linux.com/learn/kernel-newbie-corner-everything-you-wanted-know-about-module-parameters
 
 [1]: images/sum-me.PNG
 [2]: images/sum-me-sol.PNG
@@ -84,3 +97,7 @@ http://www.desarrollolibre.net/blog/tema/106/linux/ejecutar-script-automaticamen
 [11]: images/crontab.JPG
 [12]: images/crontab2.JPG
 [13]: images/crontab3.JPG
+[14]: images/rickroll1.JPG
+[15]: images/rickroll2.JPG
+[16]: images/rickroll3.JPG
+[17]: images/rickrollfindsys.JPG
